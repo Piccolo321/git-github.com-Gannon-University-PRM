@@ -1,0 +1,36 @@
+//Fang Yuan
+//04-10-2014
+
+
+
+Changed because duplicate suffix when file create and store.
+
+
+In file   PGRStereoDoc.cpp
+
+The last if() statement.
+
+Change from:
+
+     
+if(fileDialog.DoModal() == IDOK)
+        {
+			if(!resolutionPoints_seatPart->saveToMillFormat(fileDialog.GetPathName()+"_seat.dat",97,81))
+			{
+				AfxMessageBox("Failed to save point cloud file ");
+			}
+	    }
+
+
+
+Change to  
+
+
+
+if(fileDialog.DoModal() == IDOK)
+        {
+			if(!resolutionPoints_seatPart->saveToMillFormat(fileDialog.GetPathName()+".dat",97,81))
+			{
+				AfxMessageBox("Failed to save point cloud file ");
+			}
+	    }
